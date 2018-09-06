@@ -10,7 +10,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.json.Json;
-import javax.json.JsonArray;
 import javax.json.JsonObject;
 import javax.json.JsonReader;
 import java.io.*;
@@ -46,20 +45,8 @@ public class JokeController {
             URL url = new URL(requestUrl);
             URLConnection urlCon = url.openConnection();
             // get the metadata for the item as a json stream
-            JsonObject metadata;
-//            BufferedReader streamReader = new BufferedReader();
-//
-//            StringBuilder result = new StringBuilder();
-//            String line;
-//
-//            // read each line of the stream
-//            while ((line = streamReader.readLine()) != null) {
-//                result.append(line);
-//            }
-//            streamReader.close();
 
             JsonReader jsonReader = Json.createReader(new InputStreamReader(urlCon.getInputStream(), "UTF-8"));
-//            System.out.println(result.toString());
             JsonObject retrievedJson = jsonReader.readObject();
             jsonReader.close();
             System.out.println(retrievedJson);
@@ -68,8 +55,7 @@ public class JokeController {
 
             JsonObject jsonJoke = retrievedJson.getJsonObject("value");
 
-//            System.out.println("metadata: " + metadata);
-//            jokeJson = metadata.getJsonObject("value");
+
             System.out.println(jsonJoke.getString("joke"));
             punchline = jsonJoke.getString("joke");
 
