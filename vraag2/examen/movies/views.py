@@ -4,7 +4,7 @@ from django.http import HttpResponse
 
 from django.shortcuts import render
 import redis
-
+# SET movie_name:actor_name
 # Create your views here.
 
 r = redis.StrictRedis(host='localhost', port=6379, db = 0);
