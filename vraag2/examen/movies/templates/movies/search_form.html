@@ -1,7 +1,7 @@
 <h1>Search actors of movie</h1>
-<form action='{% url 'quotes:search_movies' %}' method='POST'>
+<form action='{% url 'movies:search_movies' %}' method='POST'>
     {% csrf_token %}
-    <label for = 'search_term'>Your Search : </label>
+    <label for = 'search_term'>geef de film in : </label>
     <input id='search_term' type='text' name='search_term'>
     <input type='submit' value='Search' />
     </form>
